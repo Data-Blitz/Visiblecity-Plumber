@@ -1,0 +1,26 @@
+{
+  "appNodeUri": [
+    "analyticChannelViews",
+    "CrimeBreakDownSummaryView"
+  ],
+  "name": "CrimeBreakDownSummaryView",
+  "version": 0,
+  "type": "appNode.crimeBreakDownSummaryView",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeBreakDownSummaryView"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "configuration": {
+  },
+  "implPath": "analyticChannelViews/crimeBreakDownSummaryView"
+}

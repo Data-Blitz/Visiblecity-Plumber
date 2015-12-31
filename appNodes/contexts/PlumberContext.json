@@ -1,0 +1,37 @@
+{
+  "appNodeUri": [
+    "contexts",
+    "PlumberContext"
+  ],
+  "name": "PlumberContext",
+  "type":"context",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "dependencies": {
+    "appNodes": {
+      "type":"database",
+      "appNodeUri": [
+        "databases",
+        "couchdb",
+        "AppNodeCouchdb"
+      ]
+    },
+    "idGenerator": {
+      "type":"idGenerator",
+      "appNodeUri": [
+        "utilities",
+        "AppNodeIdGenerator"
+      ]
+    }
+  }
+}

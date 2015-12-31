@@ -1,0 +1,29 @@
+{
+  "appNodeUri": ["handlers","futureHandlers","AnalyticChannelFutureHandler"],
+  "name": "AnalyticChannelFutureHandler",
+  "type":"futureHandlers",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["AnalyticChannelFutureHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "implPath": "handlers/futureHandlers/AnalyticChannelFutureHandler",
+  "newInstance":true,
+  "configuration":{
+    "futuresDatabase":"evidence"
+  },
+  "dependencies": {
+    "futuresDatabase": {
+      "type":"database",
+      "appNodeUri": [
+        "databases",
+        "Couchdb"
+      ]
+    }
+  }
+}
+
+

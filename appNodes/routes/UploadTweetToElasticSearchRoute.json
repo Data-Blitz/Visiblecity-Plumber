@@ -1,0 +1,43 @@
+{
+  "appNodeUri": [
+    "routes",
+    "UploadTweetToElasticSearchRoute"
+  ],
+  "name": "UploadTweetToElasticSearchRoute",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UploadTweetToElasticSearchRoute"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "routes/route",
+  "dependencies": {
+    "sink": {
+      "configuration": {
+        "database":"tweeks"
+      },
+      "appNodeUri": [
+        "sinks",
+        "SearchEngineSink"
+      ]
+    },
+    "source": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sources",
+        "UploadTwitterDataSource"
+      ]
+    }
+  }
+}

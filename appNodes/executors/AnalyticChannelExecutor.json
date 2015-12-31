@@ -1,0 +1,64 @@
+{
+  "appNodeUri": [
+    "executors",
+    "AnalyticChannelExecutor"
+  ],
+  "name": "AnalyticChannelExecutor",
+  "type": "executor.analyticChannelExecutor",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "AnalyticChannelExecutor"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "executors/analyticChannelExecutor",
+  "dependencies": {
+    "inputHandler": {
+      "type": "inputHandler",
+      "appNodeUri": [
+        "handlers",
+        "inputHandlers",
+        "AnalyticChannelInputHandler"
+      ]
+    },
+    "indexHandler": {
+      "appNodeUri": [
+        "handlers",
+        "indexHandlers",
+        "UrlAnalyticChannelIndexHandler"
+      ]
+    },
+    "futureHandler": {
+      "appNodeUri": [
+        "handlers",
+        "futureHandlers",
+        "AnalyticChannelFutureHandler"
+      ]
+    },
+    "viewHandler": {
+      "appNodeUri": [
+        "handlers",
+        "viewHandlers",
+        "AnalyticChannelViewHandler"
+      ]
+    },
+    "analyticChannels": {
+      "appNodeUri": [
+        "analyticChannelCollections",
+        "VisibleCityAnalyticChannels"
+      ]
+    }
+  }
+}
+
+
+

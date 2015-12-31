@@ -1,0 +1,56 @@
+{
+  "appNodeUri": [
+    "analyticChannelStreams",
+    "CrimeAnalyticChannelStreams"
+  ],
+  "name": "CrimeAnalyticChannelStreams",
+  "version": 0,
+  "type": "appNode.crimeAnalyticChannelStreams",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeAnalyticChannelStreams"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "configuration": {
+    "streamDatabaseName":"crime-analytic-channel"
+  },
+  "dependencies": {
+    "byNeighborhood": {
+      "appNodeUri": [
+        "streamIndexers",
+        "mappers",
+        "ByNeighborhoodMapper"
+      ]
+    },
+    "byOffence": {
+      "appNodeUri": [
+        "streamIndexers",
+        "mappers",
+        "byOffenceMapper"
+        ]
+    },
+    "byPercint": {
+      "appNodeUri": [
+        "streamIndexers",
+        "mappers",
+        "byPercintMapper"
+      ]
+    },
+    "byCountAll": {
+      "appNodeUri": [
+        "streamIndexers",
+        "mappers",
+        "byCountAll"
+      ]
+    }
+  }
+}

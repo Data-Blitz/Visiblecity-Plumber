@@ -1,0 +1,17 @@
+{
+  "appNodeUri": [
+    "streamIndexers",
+    "mappers",
+    "ByOffenseMapper"
+  ],
+  "name": "ByOffenseMapper",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "ByOffenseMapper"
+      ],
+      "logLevel": 2
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "appNodeUri": [
+    "sources",
+    "HttpJsonResponsiveSource"
+  ],
+  "name": "HttpJsonResponsiveSource",
+  "version": 0,
+  "type": "source",
+  "configuration": {
+    "maxSynchronousWaitTime": 100,
+    "dbUrl": "/plumber",
+    "dbPort": 8870,
+    "urlVerb": "execute",
+    "responsive":true
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "HttpJsonResponsiveSource"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "sources/httpResponsiveSource",
+  "dependencies": {
+    "futuresDatabase": {
+      "type":"database",
+      "appNodeUri": [
+        "databases",
+        "couchdb",
+        "FuturesCouchdb"
+      ]
+    },
+    "futureIdGenerator": {
+      "type":"idGenerator",
+      "appNodeUri": [
+        "utilities",
+        "IdGenerator"
+      ]
+    },
+    "fetchHandler": {
+      "type":"fetchHandler",
+      "appNodeUri": [
+        "handlers",
+        "fetchHandlers",
+        "FutureResultFetchHandler"
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "appNodeUri": [
+    "commands",
+    "dataUpload",
+    "UploadCsvCommand"
+  ],
+  "name": "UploadCsvCommand",
+  "version": 0,
+  "type": "appNode.command",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UploadCsvCommand"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "commands/dataUpload/uploadCsvCommand",
+  "newInstance": true,
+  "configuration": {
+    "index":"twitter",
+    "type":"tweets"
+  },
+  "dependencies": {
+
+    "dataHandlerStack": {
+      "type": "appNode.dataHandlerStack",
+      "appNodeUri": [
+        "dataHandlerStacks",
+        "GeoDataHandlerStack"
+      ]
+    },
+
+    "searchEngine": {
+      "type": "searchEngine",
+      "appNodeUri": [
+        "searchEngines",
+        "elasticSearch",
+        "IndexElasticSearch"
+      ]
+    },
+    "idGenerator": {
+      "type": "idGenerator",
+      "appNodeUri": [
+        "utilities",
+        "IdGenerator"
+      ]
+    },
+    "attributeIdGenerator": {
+      "type": "idGenerator",
+      "appNodeUri": [
+        "utilities",
+        "attributeIdGenerator"
+      ]
+    },
+
+
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "couchdb"
+      ]
+    }
+  }
+}

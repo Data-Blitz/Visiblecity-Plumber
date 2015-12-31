@@ -1,0 +1,18 @@
+{
+  "appNodeUri": ["databases","couchdb", "CrimesCouchdb"],
+  "name": "CrimesCouchdb",
+  "type":"appNode.database",
+  "version": 0,
+  "configuration": {
+    "databaseName":"crimes"
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["CrimesCouchdb"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "databases/crimesCouchdb"
+}

@@ -1,0 +1,15 @@
+{
+  "appNodeUri": ["handlers","indexHandlers","UrlAnalyticChannelIndexHandler"],
+  "name": "UrlAnalyticChannelIndexHandler",
+  "type":"indexHandler",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["UrlAnalyticChannelIndexHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "handlers/indexHandlers/urlAnalyticChannelIndexHandler"
+}

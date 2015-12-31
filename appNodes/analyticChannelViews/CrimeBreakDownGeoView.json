@@ -1,0 +1,26 @@
+{
+  "appNodeUri": [
+    "analyticChannelViews",
+    "CrimeBreakDownGeoView"
+  ],
+  "name": "CrimeBreakDownGeoView",
+  "version": 0,
+  "type": "appNode.crimeBreakDownGeoView",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeBreakDownGeoView"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "configuration": {
+  },
+  "implPath": "analyticChannelViews/crimeBreakDownGeoView"
+}

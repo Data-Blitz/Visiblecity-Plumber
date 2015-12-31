@@ -1,0 +1,44 @@
+{
+  "appNodeUri": [
+    "routes",
+    "UploadJsonRoute"
+  ],
+  "name": "UploadJsonRoute",
+  "version": 0,
+  "configuration": {
+    "db-url": "localhost",
+    "db-port": 8000
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UploadJsonRoute"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "routes/route",
+  "dependencies": {
+    "sink": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sinks",
+        "DatabaseSink"
+      ]
+    },
+    "source": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sources",
+        "UploadJsonDataHttpSource"
+      ]
+    }
+  }
+}

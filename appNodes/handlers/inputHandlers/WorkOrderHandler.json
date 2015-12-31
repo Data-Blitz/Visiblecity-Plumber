@@ -1,0 +1,39 @@
+{
+  "appNodeUri": [
+    "handlers",
+    "inputHandlers",
+    "WorkOrderHandler"
+  ],
+  "name": "WorkOrderHandler",
+  "type": "inputHandler",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "WorkOrderHandler"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "handlers/inputHandlers/workOrderHandler",
+  "newInstance":true,
+  "dependencies": {
+    "indexHandler": {
+      "type": "indexHandler",
+      "appNodeUri": [
+        "handlers",
+        "indexHandlers",
+        "UrlIndexHandler"
+      ]
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,43 @@
+{
+  "appNodeUri": [
+    "routers",
+    "ContentRouter"
+  ],
+  "name": "ContentRouter",
+  "type": "router",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "ContentRouter"
+      ],
+      "logLevel": "info"
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "dependencies": {
+
+    "UploadTweetRoute": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "routes",
+        "UploadTweetRoute"
+      ]
+    },
+    "SaveAppNodeRoute": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "routes",
+        "SaveAppNodeRoute"
+      ]
+    }
+  }
+}
+

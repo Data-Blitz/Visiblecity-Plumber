@@ -1,0 +1,40 @@
+{
+  "appNodeUri": [
+    "handlers",
+    "inputHandlers",
+    "DataUploadInputHandler"
+  ],
+  "name": "DataUploadInputHandler",
+  "type": "inputHandler",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "DataUploadInputHandler"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "handlers/inputHandlers/dataUploadInputHandler",
+  "newInstance":true,
+  "dependencies": {
+    "dataHandlerStack": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "dataHandlerStacks",
+        "GeoDataHandlerStack"
+      ]
+    }
+  }
+
+}
+
+
+
+
+

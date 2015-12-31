@@ -1,0 +1,19 @@
+{
+  "appNodeUri": ["searchEngines","elasticSearch", "TwitterTweetIndexElasticSearch"],
+  "name": "TwitterTweetIndexElasticSearch",
+  "type":"searchEngine",
+  "version": 0,
+  "configuration": {
+    "index":"twitter",
+    "type":"tweets"
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["TwitterTweetIndexElasticSearch"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "searchEngines/elasticSearch/twitterTweetIndexElasticSearch"
+}

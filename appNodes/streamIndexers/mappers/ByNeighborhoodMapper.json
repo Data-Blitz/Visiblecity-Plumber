@@ -1,0 +1,17 @@
+{
+  "appNodeUri": [
+    "streamIndexers",
+    "mappers",
+    "ByNeighborhoodMapper"
+  ],
+  "name": "ByNeighborhoodMapper",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "ByNeighborhoodMapper"
+      ],
+      "logLevel": 2
+    }
+  }
+}

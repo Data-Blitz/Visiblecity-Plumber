@@ -1,0 +1,32 @@
+{
+  "appNodeUri": [
+    "sinks",
+    "ExecutorSink"
+  ],
+  "name": "ExecutorSink",
+  "type":"sink",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "sinks/executorSink",
+  "dependencies": {
+    "executor": {
+      "type":"executor",
+      "appNodeUri": [
+        "executors",
+        "IndexedCommandExecutor"
+      ]
+    }
+  }
+}
+
+

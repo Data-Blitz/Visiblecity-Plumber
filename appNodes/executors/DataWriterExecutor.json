@@ -1,0 +1,51 @@
+{
+  "appNodeUri": [
+    "executors",
+    "DataWriterExecutor"
+  ],
+  "name": "DataWriterExecutor",
+  "type": "executor",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "DataWriterExecutor"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "executors/dataWriterExecutor",
+  "dependencies": {
+    "inputHandler": {
+      "type": "inputHandler",
+      "appNodeUri": [
+        "handlers",
+        "inputHandlers",
+        "DataUploadInputHandler"
+      ]
+    },
+    "indexHandler": {
+      "type": "indexHandler",
+      "appNodeUri": [
+        "handlers",
+        "indexHandlers",
+        "UrlIndexHandler"
+      ]
+    },
+
+    "commands": {
+      "type": "commandCollection",
+      "appNodeUri": [
+        "commandCollections",
+        "DataUploadCommands"
+      ]
+    }
+  }
+}
+

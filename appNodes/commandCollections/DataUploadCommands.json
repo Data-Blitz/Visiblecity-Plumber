@@ -1,0 +1,36 @@
+{
+  "appNodeUri": ["commandCollections","DataUploadCommands"],
+  "name": "DataUploadCommands",
+  "type":"appNode.commandCollection",
+  "version": 0,
+  "configuration": {
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["DataUploadCommands"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "dependencies": {
+    "uploadCsv": {
+      "type":"appNode.command",
+      "appNodeUri": [
+        "commands",
+        "dataUpload",
+        "UploadCsvCommand"
+      ]
+    },
+    "dependencies": {
+      "uploadJsonArray": {
+        "type": "appNode.command",
+        "appNodeUri": [
+          "commands",
+          "dataUpload",
+          "UploadJsonArrayCommand"
+        ]
+      }
+    }
+  }
+}

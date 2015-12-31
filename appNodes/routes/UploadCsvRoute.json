@@ -1,0 +1,42 @@
+{
+  "appNodeUri": [
+    "routes",
+    "UploadCsvRoute"
+  ],
+  "name": "UploadCsvRoute",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UploadCsvRoute"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "routes/uploadCsvRoute",
+  "dependencies": {
+    "sink": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sinks",
+        "WriteExecutorSink"
+      ]
+    },
+    "source": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sources",
+        "HttpBinarySource"
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "appNodeUri": [
+    "commands",
+    "dataUpload",
+    "UploadJsonArrayCommand"
+  ],
+  "name": "UploadJsonArrayCommand",
+  "version": 0,
+  "type": "appNode.command",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UploadJsonArrayCommand"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "commands/dataUpload/uploadJsonArrayCommand",
+  "newInstance": true,
+  "dependencies": {
+    "searchEngine": {
+      "type": "searchEngine",
+      "appNodeUri": [
+        "searchEngines",
+        "elasticSearch",
+        "TwitterTweetIndexElasticSearch"
+      ]
+    },
+    "idGenerator": {
+      "type": "idGenerator",
+      "appNodeUri": [
+        "utilities",
+        "IdGenerator"
+      ]
+    },
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "couchdb",
+        "CrimesCouchdb"
+      ]
+    }
+  }
+}

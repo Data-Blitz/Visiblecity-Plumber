@@ -1,0 +1,44 @@
+{
+  "appNodeUri": [
+    "analyticChannelCollections",
+    "CrimeAnalyticChannelViewCollections"
+  ],
+  "name": "CrimeAnalyticChannelViewCollections",
+  "type": "appNode.analyticChannelCollections",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeAnalyticChannelViewCollections"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "dependencies": {
+    "geoSummary": {
+      "appNodeUri": [
+        "analyticChannelViews",
+        "CrimeBreakDownGeoView"
+      ]
+    },
+    "summary": {
+      "appNodeUri": [
+        "analyticChannelViews",
+        "CrimeBreakDownSummaryView"
+      ]
+    },
+    "neighborhoodSummary": {
+      "appNodeUri": [
+        "analyticChannelViews",
+        "SummaryByNeighborhoodView"
+      ]
+    }
+
+  }
+}

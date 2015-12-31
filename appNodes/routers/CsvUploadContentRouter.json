@@ -1,0 +1,38 @@
+{
+  "appNodeUri": [
+    "routers",
+    "CsvUploadContentRouter"
+  ],
+  "name": "CsvUploadContentRouter",
+  "type": "appNode.router",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CsvUploadContentRouter"
+      ],
+      "logLevel": "info"
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "dependencies": {
+
+    "UploadCsvRoute": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "routes",
+        "UploadCsvRoute"
+      ]
+    }
+
+
+
+  }
+}
+

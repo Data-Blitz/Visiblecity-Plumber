@@ -1,0 +1,36 @@
+{
+  "appNodeUri": [
+    "handlers",
+    "fetchHandlers",
+    "FuturesResultFetchHandler"
+  ],
+  "name": "FuturesResultFetchHandler",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "FuturesResultFetchHandler"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "handlers/fetchHandlers/futuresResultFetchHandler",
+  "dependencies": {
+    "database": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "databases",
+        "couchdb",
+        "FuturesCouchdb"
+      ]
+    }
+  }
+}

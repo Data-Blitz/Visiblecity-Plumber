@@ -1,0 +1,31 @@
+{
+  "appNodeUri": [
+    "sources",
+    "HttpJsonSource"
+  ],
+  "name": "HttpJsonSource",
+  "version": 0,
+  "type": "source",
+  "configuration": {
+    "maxSynchronousWaitTime": 10,
+    "dbUrl": "/plumber",
+    "dbPort": 8000,
+    "urlVerb": "execute",
+    "responsive":false
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "HttpJsonSource"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "sources/httpSource"
+
+}

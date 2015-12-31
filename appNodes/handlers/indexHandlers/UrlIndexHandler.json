@@ -1,0 +1,15 @@
+{
+  "appNodeUri": ["handlers","indexHandlers","UrlIndexHandler"],
+  "name": "UrlIndexHandler",
+  "type":"indexHandler",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["UrlIndexHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "handlers/indexHandlers/urlIndexHandler"
+}

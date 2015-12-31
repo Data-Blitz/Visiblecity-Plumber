@@ -1,0 +1,15 @@
+{
+  "appNodeUri": ["handlers","contextHandlers","WorkOrderContextHandler"],
+  "name": "WorkOrderContextHandler",
+  "type":"contextHandler",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["WorkOrderContextHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "handlers/contextHandlers/workOrderContextHandler"
+}

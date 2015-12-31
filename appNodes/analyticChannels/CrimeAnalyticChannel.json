@@ -1,0 +1,35 @@
+{
+  "appNodeUri": [
+    "analyticChannels",
+    "CrimeAnalyticChannel"
+  ],
+  "name": "CrimeAnalyticChannel",
+  "version": 0,
+  "type": "appNode.crimeAnalyticChannel",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeAnalyticChannel"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "configuration": {
+  },
+  "dependencies": {
+
+    "analytic": {
+      "type": "appNode.analytic",
+      "appNodeUri": [
+        "analytics",
+        "CrimeAnalytic"
+      ]
+    }
+  }
+}

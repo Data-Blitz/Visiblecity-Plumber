@@ -1,0 +1,23 @@
+{
+  "appNodeUri": ["handlers","viewHandlers","AnalyticChannelViewHandler"],
+  "name": "AnalyticChannelViewHandler",
+  "type":"viewHandler",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["AnalyticChannelViewHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "handlers/viewHandlers/analyticChannelViewHandler",
+  "dependencies": {
+    "views": {
+      "appNodeUri": [
+        "analyticChannelViewCollections",
+        "CrimeAnalyticChannelViewCollection"
+      ]
+    }
+  }
+}

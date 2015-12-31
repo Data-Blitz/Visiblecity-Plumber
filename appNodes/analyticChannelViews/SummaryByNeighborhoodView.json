@@ -1,0 +1,26 @@
+{
+  "appNodeUri": [
+    "analyticChannelViews",
+    "SummaryByNeighborhoodView"
+  ],
+  "name": "SummaryByNeighborhoodView",
+  "version": 0,
+  "type": "appNode.summaryByNeighborhoodView",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "SummaryByNeighborhoodView"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "configuration": {
+  },
+  "implPath": "analyticChannelViews/summaryByNeighborhoodView"
+}

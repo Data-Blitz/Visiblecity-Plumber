@@ -1,0 +1,30 @@
+{
+  "appNodeUri": [
+    "sources",
+    "HttpBinarySource"
+  ],
+  "name": "HttpBinarySource",
+  "version": 0,
+  "type": "appNode.source",
+  "configuration": {
+    "maxSynchronousWaitTime": 10,
+    "dbUrl": "/visibleCity",
+    "dbPort": 8600,
+    "urlVerb": "execute",
+    "responsive":false
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "HttpBinarySource"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "sources/httpBinarySource"
+}

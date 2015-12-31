@@ -1,0 +1,52 @@
+{
+  "appNodeUri": [
+    "executors",
+    "IndexedCommandExecutor"
+  ],
+  "name": "IndexedCommandExecutor",
+  "type": "executor",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "IndexedCommandExecutor"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "executors/indexedCommandExecutor",
+  "dependencies": {
+    "inputHandler": {
+      "type": "inputHandler",
+      "appNodeUri": [
+        "handlers",
+        "inputHandlers",
+        "WorkOrderHandler"
+      ]
+    },
+    "indexHandler": {
+      "type": "indexHandler",
+      "appNodeUri": [
+        "handlers",
+        "indexHandlers",
+        "UrlIndexHandler"
+      ]
+    },
+
+    "commands": {
+      "type": "commandCollection",
+      "appNodeUri": [
+        "commandCollections",
+        "DataUploadCommands"
+      ]
+    }
+  }
+}
+

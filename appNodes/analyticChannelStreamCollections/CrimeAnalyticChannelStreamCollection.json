@@ -1,0 +1,32 @@
+{
+  "appNodeUri": [
+    "analyticChannelStreamCollections",
+    "CrimeAnalyticChannelStreamCollection"
+  ],
+  "name": "CrimeAnalyticChannelStreamCollection",
+  "type": "appNode.crimeAnalyticChannelStreamCollection",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeAnalyticChannelStreamCollection"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "dependencies": {
+    "crime": {
+      "type": "appNode.analyticChannel",
+      "appNodeUri": [
+        "analyticChannels",
+        "CrimeAnalyticChannel"
+      ]
+    },
+  }
+}

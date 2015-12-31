@@ -1,0 +1,32 @@
+{
+  "appNodeUri": [
+    "sinks",
+    "AnalyticChannelExecutorSink"
+  ],
+  "name": "AnalyticChannelExecutorSink",
+  "type":"sink.analyticChannelExecutorSink",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "sinks/analyticChannelExecutorSink",
+  "dependencies": {
+    "executor": {
+      "type":"executor",
+      "appNodeUri": [
+        "executors",
+        "AnalyticChannelExecutor"
+      ]
+    }
+  }
+}
+
+

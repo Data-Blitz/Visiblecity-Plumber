@@ -1,0 +1,15 @@
+{
+  "appNodeUri": ["handlers","indexHandlers","WriterHandler"],
+  "name": "WriterHandler",
+  "type":"handler.writerHandler",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["WriterHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "handlers/indexHandlers/writerHandler"
+}

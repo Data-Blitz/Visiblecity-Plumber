@@ -1,0 +1,19 @@
+{
+  "appNodeUri": ["databases","couchdb", "TweetsCouchdb"],
+  "name": "TweetsCouchdb",
+  "type":"database",
+  "version": 0,
+  "configuration": {
+    "databaseName":"tweets"
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["TweetsCouchdb"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "databases/couchdbTweets"
+
+}

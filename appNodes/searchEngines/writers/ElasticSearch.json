@@ -1,0 +1,17 @@
+{
+  "appNodeUri": ["writers", "SearchEngineWriter"],
+  "name": "SearchEngineWriter",
+  "type":"appNode.writer.searchEngineWriter",
+  "version": 0,
+  "configuration": {
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["SearchEngineWriter"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "writers/searchEngineWriter"
+}

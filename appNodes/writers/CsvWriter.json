@@ -1,0 +1,18 @@
+{
+  "appNodeUri": ["writers", "CsvWriter"],
+  "name": "CsvWriter",
+  "type":"appNode.writer.csvWriter",
+  "version": 0,
+  "configuration": {
+    "databaseName":"CsvWriter"
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["CsvWriter"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "writers/CsvWriter"
+}

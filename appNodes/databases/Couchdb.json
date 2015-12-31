@@ -1,0 +1,17 @@
+{
+  "appNodeUri": ["databases","Couchdb"],
+  "name": "Couchdb",
+  "type":"appNode.database",
+  "version": 0,
+  "configuration": {
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["Couchdb"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "databases/couchdb"
+}

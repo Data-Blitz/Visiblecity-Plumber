@@ -1,0 +1,38 @@
+{
+  "appNodeUri": [
+    "routers",
+    "VisibleCityContentRouter"
+  ],
+  "name": "VisibleCityContentRouter",
+  "type": "appNode.router",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "VisibleCityContentRouter"
+      ],
+      "logLevel": "info"
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "dependencies": {
+    "UploadCsvRoute": {
+      "appNodeUri": [
+        "routes",
+        "UploadCsvRoute"
+      ]
+    },
+    "AnalyticChannelRoute": {
+      "appNodeUri": [
+        "routes",
+        "AnalyticChannelRoute"
+      ]
+    }
+  }
+}
+

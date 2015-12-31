@@ -1,0 +1,30 @@
+{
+  "appNodeUri": [
+    "handlers",
+    "inputHandlers",
+    "AnalyticChannelInputHandler"
+  ],
+  "name": "AnalyticChannelInputHandler",
+  "type": "inputHandler",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "AnalyticChannelInputHandler"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "handlers/inputHandlers/analyticChannelInputHandler",
+  "newInstance":true
+
+}
+
+
+
+
+

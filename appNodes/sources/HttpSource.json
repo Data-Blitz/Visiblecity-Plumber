@@ -1,0 +1,25 @@
+{
+  "appNodeUri": [
+    "sources",
+    "HttpSource"
+  ],
+  "name": "HttpSource",
+  "version": 0,
+  "type": "source",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "HttpSource"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "sources/httpSource"
+}

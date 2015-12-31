@@ -1,0 +1,29 @@
+{
+  "appNodeUri": [
+    "handlers",
+    "dataHandlers",
+    "GeoAttributeMappingDataHandler"
+  ],
+  "name": "GeoAttributeMappingDataHandler",
+  "type": "dataHandler.geoAttributeMappingDataHandler",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "GeoAttributeMappingDataHandler"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "handlers/dataHandlers/geoAttributeMappingDataHandler",
+  "newInstance":true
+}
+
+
+
+
+

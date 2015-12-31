@@ -1,0 +1,18 @@
+{
+  "appNodeUri": ["databases","couchdb", "FuturesCouchdb"],
+  "name": "FuturesCouchdb",
+  "type":"database",
+  "version": 0,
+  "configuration": {
+    "databaseName":"futures"
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["FuturesCouchdb"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "databases/couchdbFutures"
+}

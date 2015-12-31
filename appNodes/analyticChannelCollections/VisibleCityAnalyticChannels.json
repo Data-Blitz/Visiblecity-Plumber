@@ -1,0 +1,32 @@
+{
+  "appNodeUri": [
+    "analyticChannelCollections",
+    "VisibleCityAnalyticChannels"
+  ],
+  "name": "VisibleCityAnalyticChannels",
+  "type": "appNode.analyticChannelCollections",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "VisibleCityAnalyticChannels"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "dependencies": {
+    "crime": {
+      "type": "appNode.analyticChannel",
+      "appNodeUri": [
+        "analyticChannels",
+        "CrimeAnalyticChannel"
+      ]
+    }
+  }
+}

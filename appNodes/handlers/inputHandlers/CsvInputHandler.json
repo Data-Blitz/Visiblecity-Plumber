@@ -1,0 +1,14 @@
+{
+  "appNodeUri": ["handlers","inputHandlers","CsvInputHandler"],
+  "name": "CsvInputHandler",
+  "type":"inputHandler",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["CsvInputHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "implPath": "handlers/inputHandlers/csvInputHandler"
+}

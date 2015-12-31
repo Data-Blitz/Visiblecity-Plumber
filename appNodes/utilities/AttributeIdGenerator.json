@@ -1,0 +1,14 @@
+{
+  "appNodeUri": ["utilities","AttributeIdGenerator"],
+  "name": "IdGenerator",
+  "version": 0,
+  "logger":{
+    "configuration": {
+      "idTag": [
+        "AttributeIdGenerator"
+      ],
+      "logLevel": 2
+    }
+    },
+  "implPath": "utilities/attributeIdGenerator"
+}

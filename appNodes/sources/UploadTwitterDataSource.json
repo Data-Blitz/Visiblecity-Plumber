@@ -1,0 +1,32 @@
+{
+  "appNodeUri": [
+    "sources",
+    "UploadTwitterDataSource"
+  ],
+  "name": "UploadTwitterDataSource",
+  "version": 0,
+  "type": "source",
+  "configuration": {
+    "twitterAccess":{
+      "consumer_key": "1eoJLYPLruGyc19kmxeVVBGrg",
+      "consumer_secret":"OKNcpPtXxJWcYG2bYDrpKKThduzFgRPixx2VdSSlEdBQjdMFus",
+      "access_token": "52072653-IYq6oUcursuq4FIyaSeOBCLFwV2Ty9mU9XWUOao1A",
+      "access_token_secret":"cwryVfbd1nKykBpQJGNqtwEtWgZmqg2Lg0odVPdnTRmR4"
+    },
+    "location":[-93.35,44.89,-92.97,45.03]
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UploadTwitterDataSource"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "sources/twitterSource"
+}

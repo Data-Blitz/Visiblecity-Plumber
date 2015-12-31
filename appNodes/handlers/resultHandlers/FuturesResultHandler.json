@@ -1,0 +1,31 @@
+{
+  "appNodeUri": ["handlers","resultHandlers","FuturesResultHandler"],
+  "name": "FuturesResultHandler",
+  "type":"resultHandlers",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["FuturesResultHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "implPath": "handlers/resultHandlers/futuresResultHandler",
+  "newInstance":true,
+  "dependencies": {
+    "futuresDatabase": {
+      "type":"database",
+      "appNodeUri": [
+        "databases",
+        "couchdb",
+        "FuturesCouchdb"
+      ]
+    },
+    "idGenerator": {
+      "type":"idGenerator",
+      "appNodeUri": ["utilities","IdGenerator"]
+    }
+  }
+}
+
+

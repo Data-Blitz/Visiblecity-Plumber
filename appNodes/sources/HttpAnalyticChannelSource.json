@@ -1,0 +1,41 @@
+{
+  "appNodeUri": [
+    "sources",
+    "HttpAnalyticChannelSource"
+  ],
+  "name": "HttpAnalyticChannelSource",
+  "version": 0,
+  "type": "appNode.source",
+  "configuration": {
+    "maxSynchronousWaitTime":1200,
+    "dbUrl": "/visibleCity/analyticChannel",
+    "dbPort": 8800,
+    "urlVerb": "execute"
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "HttpAnalyticChannelSource"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance": true,
+  "implPath": "sources/httpAnalyticChannelSource",
+  "dependencies": {
+    "futureIdGenerator": {
+      "type": "idGenerator",
+      "appNodeUri": ["utilities","IdGenerator"]
+    },
+    "futuresDatabase": {
+      "appNodeUri": [
+        "databases",
+        "Couchdb"
+      ]
+    }
+  }
+}

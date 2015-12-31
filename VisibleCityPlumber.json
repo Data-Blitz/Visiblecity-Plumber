@@ -1,0 +1,32 @@
+{
+  "name":"VisibleCityContentRouter",
+  "version":0,
+  "configuration":{
+  },
+  "appNodeRepoAccessor": {
+    "configuration": {
+      "runTimeDirectory": "./",
+      "componentBase": "appNodes"
+    },
+    "impl": "./repoAccessors/appNodeRepoAccessors/AppNodeRepoFileSystemAccessor.js"
+  },
+  "implSourceRepoAccessor": {
+    "configuration": {
+      "componentBase": "implementations"
+    },
+    "impl": "./repoAccessors/sourceRepoAccessors/SourceRepoFileSystemAccessor.js"
+  },
+  "logger": {
+    "configuration": {
+      "name":"VisibleCityContentRouter"
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "rootAppNodeUri":["routers","VisibleCityContentRouter"],
+  "optimizeForMultiCore":true,
+  "actions":["build","ready","run"]
+}
+

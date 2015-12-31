@@ -1,0 +1,26 @@
+{
+  "appNodeUri": ["dataHandlerStacks","GeoDataHandlerStack"],
+  "name": "GeoDataHandlerStack",
+  "type":"dataHandlerStacks.geoDataHandlerStack",
+  "version": 0,
+  "configuration": {
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["DataUploadCommands"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "dependencies": {
+    "geoDataHandler": {
+      "type": "appNode.datahandler.geoDataHandler",
+      "appNodeUri": [
+        "handlers",
+        "dataHandlers",
+        "GeoAttributeMappingDataHandler"
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "appNodeUri": [
+    "streamIndexers",
+    "mappers",
+    "ByAllCountMapper"
+  ],
+  "name": "ByAllCountMapper",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "ByAllCountMapper"
+      ],
+      "logLevel": 2
+    }
+  }
+}

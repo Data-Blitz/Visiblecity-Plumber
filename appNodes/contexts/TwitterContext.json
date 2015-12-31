@@ -1,0 +1,45 @@
+{
+  "appNodeUri": [
+    "contexts",
+    "TwitterContext"
+  ],
+  "name": "TwitterContext",
+  "type":"context",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "dependencies": {
+    "database": {
+      "type":"database",
+      "appNodeUri": [
+        "databases",
+        "couchdb",
+        "TweetsCouchdb"
+      ]
+    },
+    "idGenerator": {
+      "type":"idGenerator",
+      "appNodeUri": [
+        "utilities",
+        "IdGenerator"
+      ]
+    },
+    "searchEngine": {
+      "type":"searchEngine",
+      "appNodeUri": [
+        "searchEngines",
+        "elasticSearch",
+        "TwitterTweetIndexElasticSearch"
+      ]
+    }
+  }
+}

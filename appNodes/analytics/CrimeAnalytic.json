@@ -1,0 +1,45 @@
+{
+  "appNodeUri": [
+    "analytics",
+    "CrimeAnalytic"
+  ],
+  "name": "CrimeAnalytic",
+  "version": 0,
+  "type": "appNode.analytic",
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CrimeAnalytic"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "analytics/crimeAnalytic",
+  "configuration": {
+    "views": [
+      {
+        "designDoc": "timelines",
+        "view": "byNeighborhood",
+        "database": "msp-2015-crimes"
+      }
+    ]
+  },
+  "dependencies": {
+    "views": {
+      "appNodeUri": [
+        "analyticChannelViewCollections",
+        "CrimeAnalyticChannelViewCollection"
+      ]
+    },
+    "database": {
+      "appNodeUri": [
+        "databases",
+        "Couchdb"
+      ]
+    }
+  }
+}

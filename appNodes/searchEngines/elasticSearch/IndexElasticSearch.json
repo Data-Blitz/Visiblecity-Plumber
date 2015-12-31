@@ -1,0 +1,19 @@
+{
+  "appNodeUri": ["searchEngines","elasticSearch", "IndexElasticSearch"],
+  "name": "IndexElasticSearch",
+  "type":"searchEngine",
+  "version": 0,
+  "configuration": {
+    "index":"minneapolis",
+    "type":"crime"
+  },
+  "logger":{
+    "configuration":{
+      "idTag":["IndexElasticSearch"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "newInstance":true,
+  "implPath": "searchEngines/elasticSearch/indexElasticSearch"
+}

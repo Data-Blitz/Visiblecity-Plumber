@@ -1,0 +1,17 @@
+{
+  "appNodeUri": [
+    "streamIndexers",
+    "mappers",
+    "ByPercintMapper"
+  ],
+  "name": "ByPercintMapper",
+  "version": 0,
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "ByPercintMapper"
+      ],
+      "logLevel": 2
+    }
+  }
+}
