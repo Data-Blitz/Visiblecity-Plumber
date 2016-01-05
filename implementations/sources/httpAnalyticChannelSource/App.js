@@ -17,12 +17,12 @@ module.exports = {
         app.use(bodyParser()); 						// pull information from html in POST
         app.use(methodOverride()); 					   // simulate DELETE and PUT
 
-      app.use(function(req, res, next) {
+        app.use(function (req, res, next) {
             var data = [];
-            req.on('data', function(chunk) {
+            req.on('data', function (chunk) {
                 data.push(chunk);
             });
-            req.on('end', function() {
+            req.on('end', function () {
                 req.rawBody = Buffer.concat(data);
                 next();
             });
@@ -31,20 +31,18 @@ module.exports = {
         var responsive = true; //implies create and pass a future id
         var reqParams;         //used to create indexes for downstream processing
 
-        /*
-         */
         router.get('/fetch/:id?',
             function (aRequest, aResponse) {
                 self.logger.log('info', self.name + 'attempting to fetch future');
                 if (responsive)
-                    self.futuresDatabase.get(aRequest.params.id,'evidence',
+                    self.futuresDatabase.get(aRequest.params.id, 'evidence',
                         function (anErr, aResult) {
                             if (anErr)
                                 aResponse.send([anErr]);
 
                             else
-                                aResponse.send([self.fetchHandler.handle(aResult)]);
-
+                            //aResponse.send([self.fetchHandler.handle(aResult)]);
+                                aResponse.send(aResult.view);
                         })
                 else
                     aResponse.send({
@@ -68,12 +66,10 @@ module.exports = {
                 }
                 else {
                     self.sink.sink(null, reqParams, aRequest.rawBody);
-                    aResponse.send({completionCode: 'successful'})
+                    aResponse.send({futureId: futureId, completionCode: 'successful'})
                 }
             })
 
-        /*
-         */
         router.post(/\/executeFetch\/(.+)?/,//'
             function (aRequest, aResponse) {
                 // create index tuple from url
@@ -87,7 +83,7 @@ module.exports = {
                 self.sink.sink(futureId, reqParams, aRequest.rawBody); //send downsteam for processing
 
                 setTimeout(function () {
-                    self.logger.log('info', self.name + 'attempting to sink.sink: '+aRequest.rawBody+' to Future:'+ futureId);
+                    self.logger.log('info', self.name + 'attempting to sink.sink: ' + aRequest.rawBody + ' to Future:' + futureId);
                     self.futuresDatabase.get(futureId, 'evidence',
                         function (anErr, aResult) {
                             if (anErr) {
@@ -100,7 +96,7 @@ module.exports = {
                             }
                             else {
                                 //self.logger.log('info', self.name + 'received views: ' + aResult );
-                               // aResponse.send([self.fetchHandler.handle(aResult)]);
+                                // aResponse.send([self.fetchHandler.handle(aResult)]);
                                 aResponse.send(aResult.view);
                             }
                             clearInterval(self.configuration.maxSynchronousWaitTime);
@@ -113,7 +109,7 @@ module.exports = {
 
     run: function () {
         this.app.listen(self.configuration.dbPort);
-        self.logger.log('info', self.name + ' is listening on : '+self.configuration.dbUrl+' port:'+ self.configuration.dbPort);
+        self.logger.log('info', self.name + ' is listening on : ' + self.configuration.dbUrl + ' port:' + self.configuration.dbPort);
 
     },
     shutdown: function (aDsl) {
