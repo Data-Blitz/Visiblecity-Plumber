@@ -71,21 +71,24 @@ All of upload data Is passed via HTTP Post.
 ###upLoadCsv
 below is an example which uploads the file /data/fakeData/crime.csv into the a database named crime
 ####curl http://localhost:8000/visibleCity/execute/uploadCsv/crime --data-binary @./crime.csv -H 'Content-type:text/plain; charset=utf-8'
-
 below is an example which uploads the file /data/fakeData/crime.csv into the a database named crime use the attributes "Lat" and "Long" as 
 geoPoint coordinates Latitude/Longitude ..
 ####curl http://localhost:8000/visibleCity/execute/uploadCsv/crime/geo/Lat/Long --data-binary @./crime.csv -H 'Content-type:text/plain; charset=utf-8'
-
 ###uploadJsonArray,
 ###uploadJson,
 ###uploadGeoJson
 ###uploadShapefileZip
-
-##2. analytic
-Analytic represents the container of some type of computation. Each analytic can support multiple views.
-
-##3. map
-Map is a visual representation of one or more analytics. Maps represent the geospatial view of Visible city. 
-Maps can contain a stack of analytics.views.mapView. 
-
-
+##2. analyticChannel
+An AnalyticChannel is a grouping of "like computation". Each AnalyticChannel supports a single computation and can support multiple views.  Each view is a JSON document derived from the last computation. New views can be added via Plummer as needed. Below is an example curl call: 
+###curl http://localhost:8800/visibleCity/analyticChannel/executeFetch/channel/crime/view/neighborhoodSummary  --data '@./input.json'   -H 'Content-type:text/json; charset=utf-8'
+  The invocation of the above web service in curl invokes a synchronous compute request to a running instance of a Data-Blitz Content Router. The specified AnalyticChannel is represented with  the URL token immediately following "channel/". In the above invocation, the AnalyticChannel specified is "/crime" or just crime. The view we wish to apply against the resulting data is specified by the URL token immediately following "/view". In the above call, the view neighborhoodSummary is applied  against the last computation Of the crime AnalyticChannel. ApplicationChannels can support an arbitrary number of views. Each view name is appended to the end of the URL. Also  the above example expects an input file in the current running directory called input.json. 
+ 
+ Example input:
+ 
+ ###{ "start":1420070700000, "stop": 1420153200000 }
+ 
+ The above input implies the following. 
+ 
+ Semantic: apply this AnalyticChannel to a range of data elements 
+ starting from: 1420070700000 and ending with:1420153200000
+ All times are represented in the number of milliseconds since epic, January 1970.he number of milliseconds since epic, January 1970.
