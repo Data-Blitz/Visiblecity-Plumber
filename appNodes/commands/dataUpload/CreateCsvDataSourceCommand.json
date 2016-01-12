@@ -1,0 +1,37 @@
+{
+  "appNodeUri": [
+    "commands",
+    "dataUpload",
+    "CreateCsvDataSourceCommand"
+  ],
+  "name": "CreateCsvDataSourceCommand",
+  "version": 0,
+  "type": "appNode.command",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CreateCsvDataSourceCommand"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "commands/dataUpload/createCsvDataSourceCommand",
+  "configuration": {
+  },
+  "dependencies": {
+
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "couchdb"
+      ]
+    }
+  }
+}

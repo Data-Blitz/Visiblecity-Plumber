@@ -1,0 +1,40 @@
+{
+  "appNodeUri": [
+    "dataViewFactory",
+    "CouchdbDataViewFactory"
+  ],
+  "name": "CouchdbDataViewFactory",
+  "type": "DataViewFactory",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CouchdbDataViewFactory"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "dataViewFactory/couchdbDataViewFactory",
+  "dependencies": {
+    "schemaDatabase": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "Couchdb.json"
+      ]
+    },
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "Couchdb.json"
+      ]
+    }
+  }
+}
+

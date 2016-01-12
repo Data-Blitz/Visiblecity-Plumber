@@ -1,0 +1,37 @@
+{
+  "appNodeUri": [
+    "commands",
+    "dataUpload",
+    "UpdateDataSourceCommand"
+  ],
+  "name": "UpdateDataSourceCommand",
+  "version": 0,
+  "type": "appNode.command",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "UpdateDataSourceCommand"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "commands/dataUpload/updateDataSourceCommand",
+  "configuration": {
+  },
+  "dependencies": {
+
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "couchdb"
+      ]
+    }
+  }
+}

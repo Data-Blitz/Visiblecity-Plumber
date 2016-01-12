@@ -1,0 +1,31 @@
+{
+  "appNodeUri": [
+    "sinks",
+    "CreateDataSourceExecutorSink"
+  ],
+  "name": "CreateDataSourceExecutorSink",
+  "type":"createDataSourceExecutorSink",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "sinks/createDataSourceExecutorSink",
+  "dependencies": {
+    "executor": {
+      "type":"executor",
+      "appNodeUri": [
+        "executors",
+        "DataSourceExecutor"
+      ]
+    }
+  }
+}
+
+

@@ -1,0 +1,40 @@
+{
+  "appNodeUri": [
+    "dataSourceFactory",
+    "CouchdbDataSourceFactory"
+  ],
+  "name": "CouchdbDataSourceFactory",
+  "type": "DataSourceFactoryr",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CouchdbDataSourceFactory"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "dataSourceFactory/couchdbDataSourceFactory",
+  "dependencies": {
+    "schemaDatabase": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "Couchdb.json"
+      ]
+    },
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "Couchdb.json"
+      ]
+    }
+  }
+}
+

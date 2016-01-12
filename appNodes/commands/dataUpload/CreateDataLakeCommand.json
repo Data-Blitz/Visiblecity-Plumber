@@ -1,0 +1,34 @@
+{
+  "appNodeUri": [
+    "commands",
+    "dataUpload",
+    "CreateDataLakeCommand"
+  ],
+  "name": "CreateDataLakeCommand",
+  "version": 0,
+  "type": "appNode.command",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CreateDataLakeCommand"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "commands/dataUpload/createDataLakeCommand",
+  "dependencies": {
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "couchdb"
+      ]
+    }
+  }
+}

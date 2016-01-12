@@ -25,36 +25,38 @@ module.exports = {
                 neighborhood.lats = 0;
                 neighborhood.longs = 0;
                 neighborhood.crimeCount = 0;
-                neighborhood.offenses = {};
+                //neighborhood.offenses = {};
             }
             neighborhood.lats = neighborhood.lats + parseFloat(inputDoc.latitude);
             neighborhood.longs = neighborhood.longs + parseFloat(inputDoc.longitude);
             neighborhood.crimeCount++;
-            if (inputDoc.Offense in neighborhood.offenses) {
 
-            }
         }
         for (var neighborhoodKey in view.neighborhoods) {
             neighborhood = view.neighborhoods[neighborhoodKey];
-            neighborhood.latitude = neighborhood.lats/neighborhood.crimeCount;
-            neighborhood.longitude = neighborhood.longs/neighborhood.crimeCount;
-            delete neighborhood.lats;
-            delete neighborhood.longs;
+            neighborhood.latitude = neighborhood.lats / neighborhood.crimeCount;
+            neighborhood.longitude = neighborhood.longs / neighborhood.crimeCount;
+            for (var offenseKey in view.neighborhoods.offenses) {
+                delete neighborhood.lats;
+                delete neighborhood.longs;
+            }
+            //self.logger.log('info', self.name + ' created a view for input ' + aDocs);
+            return view;
         }
-        //self.logger.log('info', self.name + ' created a view for input ' + aDocs);
-        return view;
     },
-    ready: function (aDsl) {
-        self = this;
-        return (self);
-    },
+        ready: function (aDsl) {
+            self = this;
+            return (self);
+        }
+        ,
 
-    shutdown: function (aDsl) {
+        shutdown: function (aDsl) {
 
-    },
-    audit: function (aDsl) {
+        }
+        ,
+        audit: function (aDsl) {
 
+        }
     }
-}
 
 

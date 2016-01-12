@@ -36,16 +36,38 @@ module.exports = {
         return handledData;
     },
     execute: function(anInputStream) {
+        var dataSource = {};
+        dataSource.reference = {};
+        dataSource.numberOfDocuments
+        // create JSON-Schema.org schema
+        dataSource.schema = {};
+        dataSource.schema.type = "object";
+        dataSource.schema.properties = {};
         self = this;
         var databaseName = anInputStream.index[1];// get database name from url
         self.logger.log('info', self.name + ' upload to ' + databaseName + ' database');
-        //translate Csv data
         var jsonData = Json(anInputStream.input.input);
         self.logger.log('info', self.name + ' translated ' + jsonData.length + ' documents');
         //convert JSON to javascript
         var data = JSON.parse(jsonData);
+        dataSource.numberOfDocuments = data.length;
+        var sampleDoc = data[0];
+        for (var attritbuteName in sampleDoc)
+            dataSource.schema.properties[attritbuteName] = {};//collect property names for schema generation
+
+        dataSource.index = {};
+        dataSource.index.name = databaseName+'-scratch-pad';
+        dataSource.index.views = {};
+
+        //specify map/reduce (index) each attribute for data set analysis
+        for (var propertyName in dataSource.schema.properties) {
+            viewName = 'by-'+propertyName;
+            dataSource.index.views[viewName] = {};
+            dataSource.index.views[viewName].keyAttributeName = propertyName;
+            dataSource.index.views[viewName].valueAttributeName = propertyName;
+        }
         self.logger.log('info', self.name + ' parsed to ' + data.length + ' JSON Objects');
-        // translate the data
+        // translate the data old school
         data = self.applyHandlers(data, anInputStream.index);
         self.database.batch(data, databaseName);
         self.logger.log('info', self.name + ' batched ' + data.length + ' to '+databaseName);
@@ -64,4 +86,11 @@ module.exports = {
     }
 }
 
-
+/*
+ "schema": {
+ "title": "Crime-Minneapolis-2015",
+ "type": "object",
+ "properties": {
+ "publicaddress": {
+ },
+ */

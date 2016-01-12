@@ -1,5 +1,5 @@
 var self = this;
-var timeout = 2000;
+var timeout = 200;
 var responsive;
 var app;
 
@@ -17,20 +17,22 @@ module.exports = {
         app.use(bodyParser()); 						// pull information from html in POST
         app.use(methodOverride()); 					   // simulate DELETE and PUT
 
-        app.use(function (req, res, next) {
+        app.use(function(req, res, next) {
             var data = [];
-            req.on('data', function (chunk) {
+            req.on('data', function(chunk) {
                 data.push(chunk);
             });
-            req.on('end', function () {
-                req.rawBody = Buffer.concat(data);
+            req.on('end', function() {
+                req.rawBody = Buffer.concat(data).toString();
                 next();
             });
         });
         var router = express.Router();
-        var responsive = true; //implies create and pass a future id
-        var reqParams;         //used to create indexes for downstream processing
+        var responsive = self.configuration.responsive; //implies create and pass a future id
+        var reqParams;                                  //used to create indexes for downstream processing
 
+        /*
+         */
         router.get('/fetch/:id?',
             function (aRequest, aResponse) {
                 self.logger.log('info', self.name + 'attempting to fetch future');
@@ -41,7 +43,7 @@ module.exports = {
                                 aResponse.send([anErr]);
                             else
                             //aResponse.send([self.fetchHandler.handle(aResult)]);
-                                aResponse.send(aResult.view);
+                                aResponse.send(aResult);
                         })
                 else
                     aResponse.send({
@@ -54,50 +56,52 @@ module.exports = {
          */
         router.post(/\/execute\/(.+)?/,//'
             function (aRequest, aResponse) {
+
+
                 if (aRequest.params[0].slice(-1) == "/")
                     reqParams = aRequest.params[0].slice(0, -1).split("/");
                 else
                     reqParams = aRequest.params[0].split("/");
                 if (responsive) {
                     var futureId = self.futureIdGenerator.createId();
-                    self.sink.sink(futureId, reqParams, aRequest.rawBody);
+                    self.sink.sink(futureId, reqParams, aRequest.rawBody.toString());     //maybe take out
                     aResponse.send({future: futureId, completionCode: 'successful'})
                 }
                 else {
                     self.sink.sink(null, reqParams, aRequest.rawBody);
-                    aResponse.send({futureId: futureId, completionCode: 'successful'})
+                    aResponse.send({completionCode: 'successful'})
                 }
             })
 
+        /*
+         */
         router.post(/\/executeFetch\/(.+)?/,//'
             function (aRequest, aResponse) {
+
+
                 // create index tuple from url
                 if (aRequest.params[0].slice(-1) == "/")
                     reqParams = aRequest.params[0].slice(0, -1).split("/");
                 else
                     reqParams = aRequest.params[0].split("/");
 
-                self.logger.log('info', self.name + 'attempting to executeFetch');
                 var futureId = self.futureIdGenerator.createId(); //id of results and processing evidence
+
                 self.sink.sink(futureId, reqParams, aRequest.rawBody); //send downsteam for processing
 
                 setTimeout(function () {
-                    self.logger.log('info', self.name + 'attempting to sink.sink: ' + aRequest.rawBody + ' to Future:' + futureId);
-                    self.futuresDatabase.get(futureId, 'evidence',
+                    self.futuresDatabase.get(futureId,
                         function (anErr, aResult) {
                             if (anErr) {
                                 aResult = {};
                                 aResult.completionCode = 'failed';
                                 aResult.futureId = futureId;
-                                aResult.reasons = ["timed out waiting " + timeout + " milliseconds for synchronous view"];
-                                self.logger.log('info', self.name + 'timed out waiting: ' + aRequest.rawBody + ' to Future:' + futureId);
+                                result.reasons = ["timed out waiting " + timeout + " milliseconds for synchronous response"];
                                 aResponse.send(aResult);
                             }
-                            else {
-                                //self.logger.log('info', self.name + 'received views: ' + aResult );
-                                // aResponse.send([self.fetchHandler.handle(aResult)]);
-                                aResponse.send(aResult.view);
-                            }
+                            else
+                                aResponse.send([self.fetchHandler.handle(aResult)]);
+
                             clearInterval(self.configuration.maxSynchronousWaitTime);
                         })
                 }, self.configuration.maxSynchronousWaitTime);
@@ -108,8 +112,7 @@ module.exports = {
 
     run: function () {
         this.app.listen(self.configuration.dbPort);
-        self.logger.log('info', self.name + ' is listening on : ' + self.configuration.dbUrl + ' port:' + self.configuration.dbPort);
-
+        self.logger.log('info', self.name + ' is listening on : '+self.configuration.dbUrl+' port:'+ self.configuration.dbPort);
     },
     shutdown: function (aDsl) {
 

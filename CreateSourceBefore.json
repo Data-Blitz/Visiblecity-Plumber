@@ -1,0 +1,112 @@
+{
+  "uri": [
+    "dataSources",
+    "Crime-Minneapolis-2015"
+  ],
+  "name": "Crime-Minneapolis-2015",
+  "dataStore": {
+  },
+  "reference": {
+  },
+  "schema": {
+    "title": "Crime-Minneapolis-2015",
+    "type": "object",
+    "properties": {
+      "publicaddress": {
+        "count": 13217,
+        "type":"string",
+        "unique": false,
+        "stats": {}
+      }
+    },
+    "controlnbr": {
+      "count": 13217,
+      "unique": true,
+      "stats": {}
+    },
+    "CCN": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    },
+    "Precinct": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    },
+    "ReportedDate": {
+      "count": 13217,
+      "type":"string",
+      "unique": false,
+      "stats": {}
+    },
+    "Time": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    },
+    "Offense": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    },
+    "Description": {
+      "count": 12405,
+      "unique": false,
+      "stats": {}
+    },
+    "UCRCode": {
+      "Description": {
+        "count": 12405,
+        "unique": false,
+        "stats": {}
+      }
+    },
+    "Long": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    },
+    "Lat": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    },
+    "Neighborhood": {
+      "count": 13217,
+      "unique": false,
+      "stats": {}
+    }
+  },
+  "required": [
+    "publicaddress",
+    "controlnbr",
+    "CCN",
+    "Precinct",
+    "ReportedDate",
+    "Time",
+    "Offense",
+    "UCRCode",
+    "Long",
+    "Lat",
+    "Neighborhood"
+  ],
+  "index": {
+    "name": "crime-scratchpad",
+    "views": {
+      "by-publicaddress": {
+        "keyAttributeName": "publicaddress",
+         "valueAttributeName":"publicaddress"
+      },
+      "by-contnbrolr": {
+        "keyAttributeName": "contnbrolr",
+         "valueAttributeName":"controlnbr"
+      },
+      "publicaddress-by-reportedDate": {
+        "keyAttributeName": "ReportedDate",
+         "valueAttributeName":"publicaddress"
+      }
+    }
+  }
+}
+

@@ -32,6 +32,12 @@
         "routes",
         "AnalyticChannelRoute"
       ]
+    },
+    "CreateCsvDataSourceRoute": {
+      "appNodeUri": [
+        "routes",
+        "CreateCsvDataSourceRoute"
+      ]
     }
   }
 }

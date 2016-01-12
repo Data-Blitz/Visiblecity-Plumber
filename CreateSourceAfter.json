@@ -1,0 +1,68 @@
+{
+  "uri": [
+    "dataSources",
+    "Crime-Minneapolis-2015"
+  ],
+  "name": "Crime-Minneapolis-2015",
+  "dataStore": {
+  },
+  "reference": {
+  },
+  "schema": {
+    "title": "Crime-Minneapolis-2015",
+    "type": "object",
+    "properties": {
+      "publicaddress": {
+      },
+      "controlnbr": {
+      },
+      "CCN": {
+      },
+      "Precinct": {
+      },
+      "ReportedDate": {
+      },
+      "Time": {
+      },
+      "Offense": {
+      },
+      "Description": {
+      },
+      "UCRCode": {
+      },
+      "Long": {
+      },
+      "Lat": {
+      },
+      "Neighborhood": {
+      }
+    },
+    "required": [
+      "publicaddress",
+      "controlnbr",
+      "CCN",
+      "Precinct",
+      "ReportedDate",
+      "Time",
+      "Offense",
+      "Description",
+      "UCRCode",
+      "Long",
+      "Lat",
+      "Neighborhood"
+    ]
+  },
+  "index": {
+    "name": "crime-temp",
+    "views": {
+      "by-publicaddress": {
+        "keyAttributeName": "publicaddress",
+         "valueAttributeName":"publicaddress"
+      },
+      "publicaddress-by-reportedDate": {
+        "keyAttributeName": "ReportedDate",
+         "valueAttributeName":"publicaddress"
+      }
+  }
+
+}

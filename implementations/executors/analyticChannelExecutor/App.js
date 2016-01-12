@@ -1,4 +1,6 @@
-/*  Copyright (c) Data-Blitz, Inc.   All Rights Reserved  THIS IS PROPRIETARY SOURCE CODE OF Data-Blitz, Inc. (Data-Blitz)  This source code may not be copied, reverse engineered, or altered for any purpose.  This source code is to be used exclusively by approved users and customers of Data-Blitz.  */
+/*  Copyright (c) Data-Blitz, Inc.   All Rights Reserved  THIS IS PROPRIETARY SOURCE CODE OF Data-Blitz, Inc.
+(Data-Blitz)  This source code may not be copied, reverse engineered, or altered for any purpose.  This source
+code is to be used exclusively by approved users and customers of Data-Blitz.  */
 var self;
 module.exports = {
     execute: function (aFutureId, anAnalyticIndex, anInputTuple) {

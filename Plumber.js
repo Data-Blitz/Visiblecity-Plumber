@@ -67,15 +67,13 @@ function bake(anAppNodeUri, aLogger) {
             logger.log('info', 'cannot find impl at:' + appNode.implPath);
             app = {}
         }
-        /*
         if (appNode.newInstance) {
             app = Object.create(app);
             app.instanceId = instanceCount++;
-            //logger.log('info', 'creating new instance of ' + appNode.name+' id:'+  app.instanceId);
+            logger.log('info', 'creating new instance of ' + appNode.name+' id:'+  app.instanceId);
         }
         else
             logger.log('info', 'using existing instance of ' + app.name+' id:'+  app.instanceId );
-            */
     }
     else
         app = {} //new empty application, pre-dependency injections

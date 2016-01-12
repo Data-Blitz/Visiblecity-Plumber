@@ -1,22 +1,22 @@
 {
   "appNodeUri": [
     "sources",
-    "HttpBinarySource"
+    "CreateDatatSourcehttpBinarySource"
   ],
-  "name": "HttpBinarySource",
+  "name": "CreateDatatSourcehttpBinarySource",
   "version": 0,
   "type": "appNode.source",
   "configuration": {
     "maxSynchronousWaitTime": 10,
     "dbUrl": "/visibleCity",
-    "dbPort": 8600,
+    "dbPort": 8900,
     "urlVerb": "execute",
     "responsive":true
   },
   "logger": {
     "configuration": {
       "idTag": [
-        "HttpBinarySource"
+        "CreateDatatSourcehttpBinarySource"
       ],
       "logLevel": 2
     },
@@ -26,7 +26,7 @@
     ]
   },
   "newInstance": true,
-  "implPath": "sources/httpBinarySource",
+  "implPath": "sources/createDataSourcehttpBinarySource",
 
   "dependencies": {
     "futureIdGenerator": {

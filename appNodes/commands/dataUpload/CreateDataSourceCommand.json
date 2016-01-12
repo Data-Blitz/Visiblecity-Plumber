@@ -1,0 +1,34 @@
+{
+  "appNodeUri": [
+    "commands",
+    "dataUpload",
+    "CreateDataSourceCommand"
+  ],
+  "name": "CreateDataSourceCommand",
+  "version": 0,
+  "type": "appNode.command",
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "CreateDataSourceCommand"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "implPath": "commands/dataUpload/createDataSourceCommand",
+  "dependencies": {
+    "database": {
+      "type": "database",
+      "appNodeUri": [
+        "databases",
+        "couchdb"
+      ]
+    }
+  }
+}

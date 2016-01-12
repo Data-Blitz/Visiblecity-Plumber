@@ -1,0 +1,29 @@
+{
+  "appNodeUri": ["handlers","futureHandlers","CreateDataSourceFutureHandler"],
+  "name": "CreateDataSourceFutureHandler",
+  "type":"futureHandlers",
+  "version": 0,
+  "logger":{
+    "configuration":{
+      "idTag":["CreateDataSourceFutureHandler"],
+      "logLevel":2
+    },
+    "appNodeUri": ["loggers","WinstonLogger"]
+  },
+  "implPath": "handlers/futureHandlers/createDataSourceFutureHandler",
+  "newInstance":true,
+  "configuration":{
+    "futuresDatabase":"evidence"
+  },
+  "dependencies": {
+    "futuresDatabase": {
+      "type":"database",
+      "appNodeUri": [
+        "databases",
+        "Couchdb"
+      ]
+    }
+  }
+}
+
+

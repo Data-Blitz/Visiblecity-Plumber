@@ -21,19 +21,22 @@
     ]
   },
   "dependencies": {
-    "uploadCsv": {
-      "appNodeUri": [
-        "commands",
-        "dataUpload",
-        "UploadCsvCommand"
-      ]
-    },
     "createCsvDataSource": {
       "appNodeUri": [
         "commands",
         "dataUpload",
         "CreateCsvDataSourceCommand"
       ]
+    },
+    "updateDataSource": {
+      "appNodeUri": [
+        "commands",
+        "dataUpload",
+        "UpdateDataSourceCommand"
+      ]
     }
+
+
+
   }
 }
