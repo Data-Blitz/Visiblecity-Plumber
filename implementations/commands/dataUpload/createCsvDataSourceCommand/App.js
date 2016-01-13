@@ -71,7 +71,10 @@ module.exports = {
         data = self.applyHandlers(data, anInputStream.index);
         self.database.batch(data, databaseName);
         self.logger.log('info', self.name + ' batched ' + data.length + ' to '+databaseName);
-        aFutureCallback(null, dataSource);
+        var designDoc = self.viewFactory.createView(dataSource.index);
+        self.database.write( designDoc._id, designDoc, databaseName);
+
+        aFutureCallback(null,dataSource);
     },
     ready: function (aDsl) {
         self = this;

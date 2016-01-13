@@ -7,8 +7,6 @@
   "name": "CreateCsvDataSourceCommand",
   "version": 0,
   "type": "appNode.command",
-  "configuration": {
-  },
   "logger": {
     "configuration": {
       "idTag": [
@@ -22,15 +20,19 @@
     ]
   },
   "implPath": "commands/dataUpload/createCsvDataSourceCommand",
-  "configuration": {
-  },
   "dependencies": {
-
     "database": {
       "type": "database",
       "appNodeUri": [
         "databases",
         "couchdb"
+      ]
+    },
+    "viewFactory": {
+      "type": "dataViewFactory",
+      "appNodeUri": [
+        "dataViewFactory",
+        "CouchdbDataViewFactory"
       ]
     }
   }

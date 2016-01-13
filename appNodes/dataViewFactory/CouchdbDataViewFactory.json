@@ -19,22 +19,6 @@
       "WinstonLogger"
     ]
   },
-  "implPath": "dataViewFactory/couchdbDataViewFactory",
-  "dependencies": {
-    "schemaDatabase": {
-      "type": "database",
-      "appNodeUri": [
-        "databases",
-        "Couchdb.json"
-      ]
-    },
-    "database": {
-      "type": "database",
-      "appNodeUri": [
-        "databases",
-        "Couchdb.json"
-      ]
-    }
-  }
+  "implPath": "dataViewFactory/couchdbDataViewFactory"
 }
 
