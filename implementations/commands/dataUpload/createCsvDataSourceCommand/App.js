@@ -72,9 +72,14 @@ module.exports = {
         self.database.batch(data, databaseName);
         self.logger.log('info', self.name + ' batched ' + data.length + ' to '+databaseName);
         var designDoc = self.viewFactory.createView(dataSource.index);
+        designDoc = JSON.parse( designDoc);
+        self.logger.log('info', self.name + ' generated indexes: ' + JSON.stringify(designDoc) + ' in '+databaseName);
         self.database.write( designDoc._id, designDoc, databaseName);
-
+        dataSource.completionCode = [ "indexing",0];
         aFutureCallback(null,dataSource);
+        //collect attribute counts
+
+
     },
     ready: function (aDsl) {
         self = this;
@@ -89,12 +94,3 @@ module.exports = {
 
     }
 }
-
-/*
- "schema": {
- "title": "Crime-Minneapolis-2015",
- "type": "object",
- "properties": {
- "publicaddress": {
- },
- */

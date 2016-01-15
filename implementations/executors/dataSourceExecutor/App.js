@@ -5,12 +5,6 @@ module.exports = {
         var workOrderTuple = {};
         workOrderTuple.journey = {};
         workOrderTuple.journey.startAnalyzerTimestamp = Date.now();
-
-        /*
-         aWorkTuple.journey.analyzeTime = stopAnalyticTimestamp - aWorkTuple.journey.startAnalyzerTimestamp;
-         aWorkTuple.timestamp = stopAnalyticTimestamp;
-         if (!aWorkTuple.status)
-         */
         var index = self.indexHandler.handle(aCommandIndex);
         workOrderTuple.index = aCommandIndex;
         workOrderTuple.input = self.inputHandler.handle(anInputTuple);

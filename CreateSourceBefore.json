@@ -16,7 +16,7 @@
         "count": 13217,
         "type":"string",
         "unique": false,
-        "stats": {}
+        "counts": {"max":15000}
       }
     },
     "controlnbr": {
@@ -98,13 +98,13 @@
         "keyAttributeName": "publicaddress",
          "valueAttributeName":"publicaddress"
       },
-      "by-contnbrolr": {
+      "by-Neighborhood": {
         "keyAttributeName": "contnbrolr",
          "valueAttributeName":"controlnbr"
       },
-      "publicaddress-by-reportedDate": {
+      "Neighborhood-by-ReportedDate": {
         "keyAttributeName": "ReportedDate",
-         "valueAttributeName":"publicaddress"
+        "valueAttributeName": "Neighborhood"
       }
     }
   }

@@ -3,25 +3,17 @@ var self;
 module.exports = {
 
 
-
-
     createView: function (aViewIndex) {
         var designDocument = {};
         designDocument._id = '_design/' + aViewIndex.name;
         designDocument.views = {};
         for (viewKey in aViewIndex.views) {
             designDocument.views[viewKey] = {};
-            designDocument.views[viewKey].map =
-                function (aDoc) {
-                    if (doc[viewKey]) {
-                        emit(doc.aViewIndex.views[viewKey].keyAttributeName,  doc.aViewIndex.views[viewKey].value.AttributeName)
-
-                    }
-                };
-            designDocument.views[viewKey].reduce = function (aDoc) {
-            };
+            designDocument.views[viewKey].map = 'function(doc) { if (doc.' + aViewIndex.views[viewKey].keyAttributeName + ') { emit(doc.' + aViewIndex.views[viewKey].keyAttributeName + ', doc.' + aViewIndex.views[viewKey].valueAttributeName + ') } }'
+           //  designDocument.views[viewKey].reduce = 'function (aKeys, aValues) { return sum(aValues) }';
+            designDocument.views[viewKey].reduce = '_count';
         }
-        return designDocument;
+        return JSON.stringify(designDocument);
     },
 
 
@@ -37,80 +29,10 @@ module.exports = {
     }
 }
 
-/*
 
- "index": {
- "name": "buthead-scratch-pad",
- "views": {
- "by-publicaddress": {
- "keyAttributeName": "publicaddress",
- "valueAttributeName": "publicaddress"
- },
- "by-controlnbr": {
- "keyAttributeName": "controlnbr",
- "valueAttributeName": "controlnbr"
- },
- "by-CCN": {
- "keyAttributeName": "CCN",
- "valueAttributeName": "CCN"
- },
- "by-Precinct": {
- "keyAttributeName": "Precinct",
- "valueAttributeName": "Precinct"
- },
- "by-ReportedDate": {
- "keyAttributeName": "ReportedDate",
- "valueAttributeName": "ReportedDate"
- },
- "by-BeginDate": {
- "keyAttributeName": "BeginDate",
- "valueAttributeName": "BeginDate"
- },
- "by-Time": {
- "keyAttributeName": "Time",
- "valueAttributeName": "Time"
- },
- "by-Offense": {
- "keyAttributeName": "Offense",
- "valueAttributeName": "Offense"
- },
- "by-Description": {
- "keyAttributeName": "Description",
- "valueAttributeName": "Description"
- },
- "by-UCRCode": {
- "keyAttributeName": "UCRCode",
- "valueAttributeName": "UCRCode"
- },
- "by-EnteredDate": {
- "keyAttributeName": "EnteredDate",
- "valueAttributeName": "EnteredDate"
- },
- "by-Long": {
- "keyAttributeName": "Long",
- "valueAttributeName": "Long"
- },
- "by-Lat": {
- "keyAttributeName": "Lat",
- "valueAttributeName": "Lat"
- },
- "by-Neighborhood": {
- "keyAttributeName": "Neighborhood",
- "valueAttributeName": "Neighborhood"
- },
- "by-lastchanged": {
- "keyAttributeName": "lastchanged",
- "valueAttributeName": "lastchanged"
- },
- "by-LastUpdateDate": {
- "keyAttributeName": "LastUpdateDate",
- "valueAttributeName": "LastUpdateDate"
- }
- }
- }
+var f = function (doc) {
+    if (doc.lastchanged) {
+        emit(doc.lastchanged, doc.lastchanged)
+    }
+}
 
-
-
-
-
- */
