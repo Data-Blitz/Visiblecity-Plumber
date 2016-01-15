@@ -1,0 +1,42 @@
+{
+  "appNodeUri": [
+    "routes",
+    "AnalyticChannelRoute"
+  ],
+  "name": "AnalyticChannelRoute",
+  "version": 0,
+  "configuration": {
+  },
+  "logger": {
+    "configuration": {
+      "idTag": [
+        "AnalyticChannelRoute"
+      ],
+      "logLevel": 2
+    },
+    "appNodeUri": [
+      "loggers",
+      "WinstonLogger"
+    ]
+  },
+  "newInstance":true,
+  "implPath": "routes/analyticChannelRoute",
+  "dependencies": {
+    "sink": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sinks",
+        "AnalyticChannelExecutorSink"
+      ]
+    },
+    "source": {
+      "configuration": {
+      },
+      "appNodeUri": [
+        "sources",
+        "HttpAnalyticChannelSource"
+      ]
+    }
+  }
+}
