@@ -1,16 +1,16 @@
 {
   "appNodeUri": [
     "routes",
-    "AnalyticChannelRoute"
+    "UploadCsvRoute"
   ],
-  "name": "AnalyticChannelRoute",
+  "name": "UploadCsvRoute",
   "version": 0,
   "configuration": {
   },
   "logger": {
     "configuration": {
       "idTag": [
-        "AnalyticChannelRoute"
+        "UploadCsvRoute"
       ],
       "logLevel": 2
     },
@@ -19,23 +19,27 @@
       "WinstonLogger"
     ]
   },
-  "newInstance":true,
-  "implPath": "routes/analyticChannelRoute",
+  "implPath": "routes/uploadCsvRoute",
   "dependencies": {
     "sink": {
       "configuration": {
       },
       "appNodeUri": [
         "sinks",
-        "AnalyticChannelExecutorSink"
+        "CreateDataSourceExecutorSink"
       ]
     },
     "source": {
       "configuration": {
+        "maxSynchronousWaitTime": 10,
+        "dbUrl": "/visibleCity",
+        "dbPort": 7700,
+        "urlVerb": "execute",
+        "responsive": true
       },
       "appNodeUri": [
         "sources",
-        "HttpAnalyticChannelSource"
+        "CreateDataSourcehttpBinarySource"
       ]
     }
   }
