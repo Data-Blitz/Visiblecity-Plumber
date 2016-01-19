@@ -41,8 +41,8 @@ module.exports = {
                 delete neighborhood.longs;
             }
             //self.logger.log('info', self.name + ' created a view for input ' + aDocs);
-            return view;
         }
+        return view;
     },
         ready: function (aDsl) {
             self = this;
