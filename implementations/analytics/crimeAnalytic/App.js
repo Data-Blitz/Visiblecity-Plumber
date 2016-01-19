@@ -5,6 +5,7 @@
  This source code is to be used exclusively by approved users and customers of Data-Blitz.
  */
 
+var self;
 
 module.exports = {
 
@@ -29,6 +30,7 @@ module.exports = {
     },
     ready: function (aDsl) {
         self = this;
+        self.logger.log('info', self.name + ' CrimeAnalytic is ready');
         return (self);
     },
 
