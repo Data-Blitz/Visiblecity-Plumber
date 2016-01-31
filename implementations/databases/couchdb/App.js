@@ -136,8 +136,8 @@ module.exports = {
                 self.logger.log('info', self.name + ' found or created database: ' + aDatabaseName);
                 getView(aDatabase, aViewGroupName, aViewName, function (anErr, aView) {
                     if (anErr) {
-                        self.logger.log('info', self.name + ' could find or create view: ' + aViewName + ' on database: ' + aDatabaseName);
-                        aCallback({completionCode: self.name + ' could find or create view: ' + aViewName + ' on database: ' + aDatabaseName}, null)
+                        self.logger.log('info', self.name + ' could not find or create view: ' + aViewGroupName +"-"+ aViewName + ' on database: ' + aDatabaseName);
+                        aCallback({completionCode: self.name + ' could not find or create view: ' + aViewGroupName +"-"+  aViewName + ' on database: ' + aDatabaseName}, null)
                     }
                     else if (aView) {
                         self.logger.log('info', self.name + ' found view: ' + aViewName + ' on database: ' + aDatabaseName);
@@ -148,8 +148,8 @@ module.exports = {
 
 
                          if (aViewKey) {
-                            opts.startkey = [aViewKey.start];
-                            opts.endkey = [aViewKey.stop, {}];
+                            opts.startkey = aViewKey.start;
+                            opts.endkey = aViewKey.stop;
                         }
 
 
