@@ -20,7 +20,7 @@ module.exports = {
             aWorkTuple.input,
             function (anErr, aDocs) {
                 if (anErr)
-                    self.logger.log('error', self.name + ' error analyzing ' + anInput + ' error:' + anErr.toString());
+                    self.logger.log('error', self.name + ' error analyzing ' + aDocs + ' error:' + anErr.toString());
                 else if (aDocs) {
                     //self.logger.log('info', self.name + ' successfully got view ' + JSON.stringify(aDocs));
                     aCallback(null, aDocs);
