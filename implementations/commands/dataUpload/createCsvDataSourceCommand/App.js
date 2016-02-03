@@ -5,7 +5,7 @@
  This source code is to be used exclusively by approved users and customers of Data-Blitz.
  */
 
-var Json = require('node-json-csv');
+var JsonConverter = require("csvtojson").Converter;
 
 module.exports = {
 
@@ -43,43 +43,42 @@ module.exports = {
         dataSource.schema = {};
         dataSource.schema.type = "object";
         dataSource.schema.properties = {};
+
         self = this;
         var databaseName = anInputStream.index[1];// get database name from url
         self.logger.log('info', self.name + ' upload to ' + databaseName + ' database');
-        var jsonData = Json(anInputStream.input.input);
-        self.logger.log('info', self.name + ' translated ' + jsonData.length + ' documents');
-        //convert JSON to javascript
-        var data = JSON.parse(jsonData);
-        dataSource.numberOfDocuments = data.length;
-        var sampleDoc = data[0];
-        for (var attritbuteName in sampleDoc)
-            dataSource.schema.properties[attritbuteName] = {};//collect property names for schema generation
 
-        dataSource.index = {};
-        dataSource.index.name = databaseName+'-scratch-pad';
-        dataSource.index.views = {};
+        var converter = new JsonConverter({});
+        converter.fromString(anInputStream.input.input, function(err, jsonData) {
+            dataSource.numberOfDocuments = jsonData.length;
+            var sampleDoc = data[0];
+            for (var attritbuteName in sampleDoc)
+                dataSource.schema.properties[attritbuteName] = {};//collect property names for schema generation
 
-        //specify map/reduce (index) each attribute for data set analysis
-        for (var propertyName in dataSource.schema.properties) {
-            viewName = 'by-'+propertyName;
-            dataSource.index.views[viewName] = {};
-            dataSource.index.views[viewName].keyAttributeName = propertyName;
-            dataSource.index.views[viewName].valueAttributeName = propertyName;
-        }
-        self.logger.log('info', self.name + ' parsed to ' + data.length + ' JSON Objects');
-        // translate the data old school
-        data = self.applyHandlers(data, anInputStream.index);
-        self.database.batch(data, databaseName);
-        self.logger.log('info', self.name + ' batched ' + data.length + ' to '+databaseName);
-        var designDoc = self.viewFactory.createView(dataSource.index);
-        designDoc = JSON.parse( designDoc);
-        self.logger.log('info', self.name + ' generated indexes: ' + JSON.stringify(designDoc) + ' in '+databaseName);
-        self.database.write( designDoc._id, designDoc, databaseName);
-        dataSource.completionCode = [ "indexing",0];
-        aFutureCallback(null,dataSource);
-        //collect attribute counts
+            dataSource.index = {};
+            dataSource.index.name = databaseName+'-scratch-pad';
+            dataSource.index.views = {};
 
-
+            //specify map/reduce (index) each attribute for data set analysis
+            for (var propertyName in dataSource.schema.properties) {
+                viewName = 'by-'+propertyName;
+                dataSource.index.views[viewName] = {};
+                dataSource.index.views[viewName].keyAttributeName = propertyName;
+                dataSource.index.views[viewName].valueAttributeName = propertyName;
+            }
+            self.logger.log('info', self.name + ' parsed to ' + jsonData.length + ' JSON Objects');
+            // translate the data old school
+            jsonData = self.applyHandlers(jsonData, anInputStream.index);
+            self.database.batch(jsonData, databaseName);
+            self.logger.log('info', self.name + ' batched ' + jsonData.length + ' to '+databaseName);
+            var designDoc = self.viewFactory.createView(dataSource.index);
+            designDoc = JSON.parse( designDoc);
+            self.logger.log('info', self.name + ' generated indexes: ' + JSON.stringify(designDoc) + ' in '+databaseName);
+            self.database.write( designDoc._id, designDoc, databaseName);
+            dataSource.completionCode = [ "indexing",0];
+            aFutureCallback(null,dataSource);
+            //collect attribute counts
+        });
     },
     ready: function (aDsl) {
         self = this;

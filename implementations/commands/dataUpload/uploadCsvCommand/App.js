@@ -5,7 +5,7 @@
  This source code is to be used exclusively by approved users and customers of Data-Blitz.
  */
 
-var Json = require('node-json-csv');
+var JsonConverter = require("csvtojson").Converter;
 
 module.exports = {
 
@@ -39,16 +39,15 @@ module.exports = {
         self = this;
         var databaseName = anInputStream.index[1];// get database name from url
         self.logger.log('info', self.name + ' upload to ' + databaseName + ' database');
-        //translate Csv data
-        var jsonData = Json(anInputStream.input.input);
-        self.logger.log('info', self.name + ' translated ' + jsonData.length + ' documents');
-        //convert JSON to javascript
-        var data = JSON.parse(jsonData);
-        self.logger.log('info', self.name + ' parsed to ' + data.length + ' JSON Objects');
-        // translate the data
-        data = self.applyHandlers(data, anInputStream.index);
-        self.database.batch(data, databaseName);
-        self.logger.log('info', self.name + ' batched ' + data.length + ' to '+databaseName);
+
+        var converter = new JsonConverter({});
+        converter.fromString(anInputStream.input.input, function(err, jsonData) {
+            self.logger.log('info', self.name + ' parsed to ' + jsonData.length + ' JSON Objects');
+            // translate the data
+            jsonData = self.applyHandlers(jsonData, anInputStream.index);
+            self.database.batch(jsonData, databaseName);
+            self.logger.log('info', self.name + ' batched ' + jsonData.length + ' to '+databaseName);
+        });
     },
     ready: function (aDsl) {
         self = this;

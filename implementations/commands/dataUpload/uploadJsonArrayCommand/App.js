@@ -6,7 +6,6 @@
  */
 
 var self;
-var Json = require('node-json-csv');
 
 module.exports = {
     execute: function(anInputStream) {
